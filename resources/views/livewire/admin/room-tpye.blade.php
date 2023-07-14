@@ -3,11 +3,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Rooms Manager</h1>
+                    <h1 class="m-0">ຈັດການປະເພດຫ້ອງ</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Rooms type</a></li>
+                        <li class="breadcrumb-item"><a href="#">ປະເພດຫ້ອງ</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div><!-- /.col -->
@@ -19,10 +19,10 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="d-flex justify-content-between mb-2">
-                        <button class="btn btn-primary" wire:click.prevent="addNew"><i class="fa fa-plus-circle"></i>
-                            Add Type</button>
+                        <button class="btn btn-primary" wire:click.prevent="addNew" ><i class="fa fa-plus-circle"></i>
+                            ເພີ່ມໃໜ່</button>
                         <div class="d-flex justify-content-center align-items-center border bg-white pr-2">
-                            <input type="text" class="form-control border-0" placeholder="search...">
+                            <input type="text" wire:model="searchTerm" class="form-control border-0" placeholder="ຄົ້ນຫາ...">
 
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                         </tr>
                                     @empty
                                         <tr class="text-center">
-                                            <td colspan="4">NO results found</td>
+                                            <td colspan="4">ບໍມີຂໍ້ມູນ</td>
                                         </tr>
                                     @endforelse
 
@@ -90,11 +90,11 @@
             <form autocomplete="off" 
             wire:submit.prevent="{{ $showEditModal ? 'update' : 'create' }}">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-info">
                         @if ($showEditModal)
-                            <h4>Edit Room-type</h4>
+                            <h4>ແກ້ໄຂ ປະເພດຫ້ອງ</h4>
                         @else
-                            <h4>Add Room-type</h4>
+                            <h4>ເພີ່ມປະເພດຫ້ອງໃໜ່</h4>
                         @endif
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -102,10 +102,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="forn-group">
-                            <label for="room_types">Room Type</label>
+                            <label for="room_types">ປະເພດຫ້ອງ</label>
                             <input type="text" wire:model.defer="state.room_types"
                                 class="form-control @error('room_types') is-invalid @enderror" id="room_types"
-                                aria-describedby="room_types" placeholder="Enter name">
+                                aria-describedby="room_types" placeholder="ປະເພດຫ້ອງ">
                             @error('room_types')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -114,10 +114,10 @@
                         </div>
 
                         <div class="forn-group">
-                            <label for="price">Price</label>
+                            <label for="price">ລາຄາ</label>
                             <input type="text" wire:model.defer="state.price"
                                 class="form-control @error('price') is-invalid @enderror" id="price"
-                                aria-describedby="price" placeholder="Price">
+                                aria-describedby="price" placeholder="ລາຄາ">
 
                             @error('price')
                                 <div class="invalid-feedback">
@@ -130,12 +130,12 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">ປິດ</button>
                         <button type="submit" class="btn btn-primary">
                             @if ($showEditModal)
-                                <span>Save Changes</span>
+                                <span>ແກ້ໄຂ</span>
                             @else
-                                <span>Save</span>
+                                <span>ເພີ່ມ</span>
                             @endif
                         </button>
                     </div>
@@ -152,9 +152,9 @@
 
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-info">
 
-                    <h4>detail Room-type</h4>
+                    <h4>ລາຍລະອຽດ</h4>
 
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -164,12 +164,12 @@
                 <div class="modal-body">
                     <table class="table table-bordered">
                         <tr>
-                            <th>Room Type:</th>
+                            <th>ປະເພດຫ້ອງ:</th>
                             <td>{{ $view_room_type }}</td>
                         </tr>
 
                         <tr>
-                            <th>price:</th>
+                            <th>ລາຄາ:</th>
                             <td>{{ $view_room_price }}</td>
                         </tr>
                     </table>
@@ -177,7 +177,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ປິດ</button>
                 </div>
             </div>
         </div>
@@ -188,24 +188,24 @@
       wire:ignore.self>
         <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-danger">
                         <h5 class="modal-title">
                            
-                          Delate Room-type                             
+                          ລົບ                             
                         </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     </div>
                     <div class="modal-body">
-                     <h4>Are you sure you want to delete ?</h4>                               
+                     <h4>ເຈົ້າໜັ້ນໃຈບໍທີ່ຕ້ອງການລົບ? </h4>                               
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times mr-1"></i>Cancel</button>
                         
                         <button type="button" wire:click.prevent="delete"
                          class="btn btn-danger"><i class="fa fa-trash mr-1"></i>
-                          Delete 
+                          ລົບ 
                         </button>
                     </div>
                 </div>

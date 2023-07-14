@@ -52,6 +52,65 @@
                 </a>
               </li>
 
+              
+
+              <li class="nav-item">
+                <a href="{{ Route('reservation')}}" class="nav-link {{request()->is('reservation') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>
+                    ການຈອງຫ້ອງພັກ
+                   
+                  </p>
+                </a>
+              </li>
+         
+            </ul>
+          </li>
+
+          
+          
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fa-sharp fa-solid fa-layer-group"></i>
+              <p>
+                ໂມດຸນ
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ Route('expenses')}}" class="nav-link {{request()->is('expenses') ? 'active' : '' }}">
+                  <i class="nav-icon fas fa-money-bill"></i>
+                  <p>
+                    ລາຍຮັບ-ລາຍຈ່າຍ
+                  </p>
+                </a>
+              </li>
+
+              
+
+              <li class="nav-item menu-open">
+                <a href="{{ Route('staff')}}" class="nav-link {{request()->is('staff') ? 'active' : '' }}">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                    ພະນັກງານ
+                  </p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
+
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link ">
+              <i class="nav-icon fa-sharp fa-solid fa-layer-group"></i>
+              <p>
+                ລາຍງານ
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="{{ Route('history-of-stay')}}" class="nav-link {{request()->is('history-of-stay') ? 'active' : '' }}">
                   <i class="far fa-circle nav-icon"></i>
@@ -60,30 +119,13 @@
                   </p>
                 </a>
               </li>
-         
+             
+              
             </ul>
           </li>
-
-          <li class="nav-item menu-open">
-            <a href="{{ Route('reservation')}}" class="nav-link {{request()->is('reservation') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-bookmark"></i>
-              <p>
-                ການຈອງຫ້ອງພັກ
-               
-              </p>
-            </a>
-          </li>
+         
           
-           <li class="nav-item menu-open">
-            <a href="{{ Route('staff')}}" class="nav-link {{request()->is('staff') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                ພະນັກງານ
-              </p>
-            </a>
-          </li>
           
-
           <li class="nav-item menu-open">
             <form method="post" action="{{ route('logout') }}"  class="nav-link nav-item menu-open">
               @csrf

@@ -3,11 +3,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Staff</h1>
+                    <h1 class="m-0">ພະນັກງານ</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Staff</a></li>
+                        <li class="breadcrumb-item"><a href="#">ພະນັກງານ</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </div><!-- /.col -->
@@ -22,10 +22,8 @@
                         <div>
                             <button class="btn btn-primary" wire:click.prevent="addNew"><i
                                     class="fa fa-plus-circle"></i>
-                                Add Emporyees
+                                ເພີ່ມ
                             </button>
-                            <a href="{{ Route('generate-pdf')}}"  class="btn btn-info"><i class="fa fa-save"></i> SAVE TO PDF FILE</a>
-                           
                         </div>
 
 
@@ -33,7 +31,7 @@
                         <div class="d-flex justify-content-center align-items-center border bg-white pr-2">
 
                             <input wire:model="searchTerm" type="text" class="form-control border-0"
-                                placeholder="search...">
+                                placeholder="ຄົ້ນຫາ...">
 
                         </div>
 
@@ -98,11 +96,11 @@
         <div class="modal-dialog" role="document">
             <form autocomplete="off" wire:submit.prevent="{{ $showEditModal ? 'update' : 'save_employees' }}">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-info">
                         @if ($showEditModal)
-                            <h4>Edit Employees</h4>
+                            <h4>ແກ້ໄຂ</h4>
                         @else
-                            <h4>Add Employees</h4>
+                            <h4>ເພີ່ມໃໜ່</h4>
                         @endif
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -110,11 +108,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="forn-group">
-                            <label for="">Room Type</label>
+                            <label for="">ຕຳແໜ່ງ</label>
                             <select name="staff_type_id" id="staff_type_id"
                                 class="form-control  @error('staff_type_id') is-invalid @enderror"
                                 wire:model.defer="state.staff_type_id" aria-describedby="staff_type_id">
-                                <option selected>Select Room type</option>
+                                <option selected>ກະລຸນາເລືອກຕຳແໜ່ງ</option>
                                 @foreach ($staff_type as $type)
                                     <option value="{{ $type->id }}">{{ $type->staff_type }}</option>
                                 @endforeach
@@ -186,11 +184,11 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         @if ($showEditModal)
                             <button type="submit" class="btn btn-primary">
-                                <span>Update</span>
+                                <span>ແກ້ໄຂ</span>
                             </button>
                         @else
                             <button type="submit" class="btn btn-primary">
-                                <span>Save</span>
+                                <span>ບັກທຶກ</span>
                             </button>
                         @endif
                     </div>
@@ -207,9 +205,9 @@
 
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-info">
 
-                    <h4>Detail Employees</h4>
+                    <h4>ລາຍລະອຽດ</h4>
 
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -247,7 +245,7 @@
                 </div>
                 <div class="modal-footer">
                     
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ປິດ</button>
                 </div>
             </div>
         </div>
@@ -258,17 +256,17 @@
         aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-danger">
                     <h5 class="modal-title">
 
-                        Delate Employees
+                        ລົບ
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h4>Are you sure you want to delete ?</h4>
+                    <h4>ເຈົ້າໜັ້ນໃຈບໍທີ່ຕ້ອງການລົບ?</h4>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
@@ -276,7 +274,7 @@
 
                     <button type="button" wire:click.prevent="delete" class="btn btn-danger"><i
                             class="fa fa-trash mr-1"></i>
-                        Delete
+                        ລົບ
                     </button>
                 </div>
             </div>

@@ -22,7 +22,7 @@
             <div class="container-fluid">
               <!-- Info boxes -->
               <div class="row">
-                <div class="col-12 col-sm-6 col-md-3">
+                <div class="col-12 col-sm-6 col-md-4">
                   <div class="info-box">
                     <span class="info-box-icon bg-info elevation-1"><i class="fas fa-bed"></i></span>
         
@@ -38,7 +38,7 @@
                   <!-- /.info-box -->
                 </div>
                 <!-- /.col -->
-                <div class="col-12 col-sm-6 col-md-3">
+                <div class="col-12 col-sm-6 col-md-4">
                   <div class="info-box mb-3">
                     <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-bookmark"></i></span>
         
@@ -55,7 +55,7 @@
                 <!-- fix for small devices only -->
                 <div class="clearfix hidden-md-up"></div>
         
-                <div class="col-12 col-sm-6 col-md-3">
+                <div class="col-12 col-sm-6 col-md-4">
                   <div class="info-box mb-3">
                     <span class="info-box-icon bg-success elevation-1"><i class="fas fa-users"></i></span>
         
@@ -69,7 +69,7 @@
                 </div>
         
 
-                <div class="col-12 col-sm-6 col-md-3">
+                <div class="col-12 col-sm-6 col-md-4">
                     <div class="info-box mb-3">
                       <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-bed"></i></span>
           
@@ -84,7 +84,7 @@
 
 
 
-                  <div class="col-12 col-sm-6 col-md-3">
+                  <div class="col-12 col-sm-6 col-md-4">
                     <div class="info-box mb-3">
                       <span class="info-box-icon bg-info elevation-1"><i class="fas fa-check-circle"></i></span>
           
@@ -96,37 +96,27 @@
                     </div>
                     <!-- /.info-box -->
                   </div>
-                  <div class="col-12 col-sm-6 col-md-3">
-                    <div class="info-box mb-3">
-                      <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-spinner"></i></span>
-          
-                      <div class="info-box-content">
-                        <span class="info-box-text">ຫ້ອງທີ່ຄ້າງຈ່າຍ</span>
-                        <span class="info-box-number">1</span>
-                      </div>
-                      <!-- /.info-box-content -->
-                    </div>
-                    <!-- /.info-box -->
-                  </div>
-                  <div class="col-12 col-sm-6 col-md-3">
+             
+                  <div class="col-12 col-sm-6 col-md-4">
                     <div class="info-box mb-3">
                       <span class="info-box-icon bg-success elevation-1"><i class="fa-solid fa-money-bill"></i></span>
           
                       <div class="info-box-content">
                         <span class="info-box-text">ລາຍຮັບທັງໝົດ/ເດືອນ</span>
-                        <span class="info-box-number">10000</span>
+                        <span class="info-box-number">{{ number_format($income, 2, '.', ',')}} ກິບ</span>
                       </div>
                       <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->
                   </div>
-                  <div class="col-12 col-sm-6 col-md-3">
+
+                  <div class="col-12 col-sm-6 col-md-4">
                     <div class="info-box mb-3">
                       <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-credit-card"></i></span>
           
                       <div class="info-box-content">
                         <span class="info-box-text">ລາຍຈ່າຍທັງໜົດ/ເດືອນ</span>
-                        <span class="info-box-number">500</span>
+                        <span class="info-box-number">{{ number_format($expenditure, 2, '.', ',')}} ກິບ</span>
                       </div>
                       <!-- /.info-box-content -->
                     </div>

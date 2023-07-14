@@ -21,8 +21,8 @@
                 <div class="col-lg-12" wire:ignore.self>
                     <form class=" needs-validation" autocomplete="off" wire:submit.prevent="booking">
                         <div class="card">
-                            <div class="card-header">
-                                <h4>ຂໍ້ມູນຫ້ອງ</h4>
+                            <div class="card-header bg-info">
+                                <h4 class="text-center">ຂໍ້ມູນຫ້ອງ</h4>
                             </div>
                             <div class="card-body">
 
@@ -114,7 +114,7 @@
                                                 id="price"></span>{{ number_format($room_price, 2, '.', ',') }}/-
                                         </h4>
                                         <h4 style="font-weight: bold">ລາຄາລວມ : <span
-                                                id="total_price">{{ $total_price }}</span> /-
+                                                id="total_price">{{ number_format($total_price, 2, '.', ',') }}</span> /-
                                         </h4>
                                     </div>
                                 </div>
@@ -123,8 +123,8 @@
                         </div>
 
                         <div class="card">
-                            <div class="card-header">
-                                <h4>ຂໍ້ມູນຂອງລູກຄ້າ:</h4>
+                            <div class="card-header bg-info">
+                                <h4 class="text-center">ຂໍ້ມູນຂອງລູກຄ້າ:</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -178,7 +178,7 @@
 
                             </div>
                             <div class="card-footer d-flex justify-content-end">
-                                <button type="submit" class="btn btn-info">ຈອງ</button>
+                                <button type="submit" class="btn btn-success">ຈອງ</button>
                             </div>
                         </div>
 

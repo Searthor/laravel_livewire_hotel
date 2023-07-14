@@ -9,6 +9,7 @@ use App\Http\Livewire\Admin\Staff;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\PrintController;
+use App\Http\Livewire\Admin\Expenses;
 use App\Http\Livewire\Admin\HistoryOfStay;
 
 /*
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/manage_rooms', ManageRoots::class)->name('manage_rooms');
     Route::get('/rooms_type', RoomTpye::class)->name('rooms_type');
     Route::get('/staff', Staff::class)->name('staff');
+    Route::get('/expenses', Expenses::class)->name('expenses');
     Route::get('/history-of-stay', HistoryOfStay::class)->name('history-of-stay');
     Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->name('generate-pdf');
     Route::get('print', [PrintController::class, 'printhistoryStay'])->name('print');

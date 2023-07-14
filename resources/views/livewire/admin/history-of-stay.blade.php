@@ -22,9 +22,40 @@
             <div class="row">
                 <div class="col-lg-12 ">
                     <div class="d-flex justify-content-start mb-2">
-                        <a href="{{ Route('print') }}" target="_blank" class="btn btn-info ml-4"><i
-                                class="fa fa-print"></i></a>
-
+                        <div class="col-md-1">
+                            <a href="" onclick="print_content()" class="btn btn-info ml-4"><i
+                                class="fa fa-print"></i>
+                        </a>
+                        </div>
+                        <div class="col-md-1">
+                            <select name="year" id="year" class="form-control" wire:model='year'>
+                                <option value="">--ປີ--</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <select name="month" id="year" class="form-control" wire:model='month'>
+                                <option value="">ເດີອນ</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="card ">
@@ -86,11 +117,7 @@
 
 
 
-
-
-
-
-    <div class="modal fade " id="addRoot" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+    <div class="modal fade " id="Print_detai" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
         aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog " role="document">
 
@@ -148,15 +175,97 @@
         </div>
     </div>
 
+    <div class="container print-content d-none" id="print">
+        <div class="row">
+            <div class="col-lg-12 ">
+                <div class="header d-flex justify-content-between">
+                    <div class="logo ">
+                        <img src="logo.png" width="50px" height="50px" alt="">
+                        <p class="mt-2">ບໍລິສັດ ຊີໄອທີ ຈຳກັດຜູ້ດຽວ</p>
+                        <h5>CIT SOLE CO.,LTD</h5>
+                    </div>
+
+
+                    <div class="">
+                        <p>ເລກທີ່ CIT23292ຊອທ</p>
+                        <p>ນະຄອນຫຼວງວຽງຈັນ,ວັນທີ່ {{ $dates }}</p>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <h6>ລາຍງານການພັກເຊົາ</h6>
+                    <h6>ປະຈຳເດືອນ </h6>
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col" class="text-center">No.</th>
+                            <th scope="col" class="text-center">ເລກຫ້ອງ</th>
+                            <th scope="col" class="text-center">ຊື່ລູກຄ້າ</th>
+                            <th scope="col" class="text-center">ເບີໂທ</th>
+                            <th scope="col" class="text-center">ວັນທີ່ເຂົ້າພັກ</th>
+                            <th scope="col" class="text-center">ວັນທີ່ອອກ</th>
+                            <th scope="col" class="text-center">ລາຄາ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($booking as $data)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $data->room_no }}</td>
+                                <td>{{ $data->customer_name }}</td>
+                                <td>{{ $data->customer_phone }}</td>
+                                <td>{{ $data->check_in }}</td>
+                                <td>{{ $data->check_out }}</td>
+                                <td>{{ number_format($data->total_price, 2, '.', ',') }}</td>
+                            </tr>
+                        @endforeach
+                        <tr>
+
+                            <td colspan="6" class="text-center table-info "><strong>ລວມເປັນເງິນທັງໜົດ</strong>
+                            </td>
+                            <td class="table-info"><strong>{{ number_format($tatol_price, 2, '.', ',') }}</strong>
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+                <div class="footer d-flex justify-content-between px-4">
+                    <p>ຫົວໜ້າບໍລິສັດ</p>
+                    <p>ຜູ້ສະຫຼຸບ</p>
+                </div>
+            </div><!-- end col -->
+        </div>
+    </div>
+
 
 </div>
+
 <script>
     function printModal() {
-        const modal = document.getElementById('addRoot'); // Replace 'modal' with the ID of your modal
+        const modal = document.getElementById('Print_detai'); // Replace 'modal' with the ID of your modal
         const modalContent = modal.innerHTML; // Get the HTML content of the modal
         const originalContent = document.body.innerHTML; // Save the original HTML content of the page
         document.body.innerHTML = modalContent; // Replace the HTML content of the page with the modal content
         window.print(); // Print the modal
         document.body.innerHTML = originalContent; // Restore the original HTML content of the page
     }
+
+    function print_content() {
+        const print = document.getElementById('print'); // Replace 'modal' with the ID of your modal
+        const modalContent = print.innerHTML; // Get the HTML content of the modal
+        const originalContent = document.body.innerHTML; // Save the original HTML content of the page
+        document.body.innerHTML = modalContent; // Replace the HTML content of the page with the modal content
+        window.print(); // Print the modal
+        document.body.innerHTML = originalContent; // Restore the original HTML content of the page
+    }
+
+
+    window.addEventListener('show-form-print_id',event =>{
+        $('#Print_detai').modal('show');
+    })
 </script>

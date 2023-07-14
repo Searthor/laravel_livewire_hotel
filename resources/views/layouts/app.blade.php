@@ -127,8 +127,6 @@
         $('#printP').modal('show');
         
     })
-
-    
     window.addEventListener('show-form-detail',event =>{
         $('#showdetail').modal('show');
     })
@@ -141,6 +139,11 @@
 
     window.addEventListener('Error',event =>{
       toastr.error(event.detail.message,'Error!');
+        
+    })
+
+    window.addEventListener('succuss',event =>{
+      toastr.success(event.detail.message,'Success!');
         
     })
 

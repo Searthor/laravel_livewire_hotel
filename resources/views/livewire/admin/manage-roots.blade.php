@@ -19,25 +19,27 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="d-flex justify-content-between  mb-2">
-                        <div>
+                        <div class="d-grid gap-3">
                             <button class="btn btn-primary" wire:click.prevent="addNew"><i
                                     class="fa fa-plus-circle"></i>
-                                ເພີ່ມຫ້ອງ</button>
-                            <a href="{{ Route('manage_rooms') }}" class="btn btn-secondary ml-2">
+                                ເພີ່ມຫ້ອງ
+                            </button>
+                            
+                            <a href="{{ Route('manage_rooms') }}" class="btn btn-secondary">
 
                                 ຫ້ອງທັງໜົດ
                                 <span class="badge badge-light right">{{ $all_room }}</span>
 
                             </a>
                             <a href="{{ Route('manage_rooms', ['status' => '0']) }}"
-                                class="btn btn-success ml-2">ຫ້ອງຫວ່າງ
+                                class="btn btn-success">ຫ້ອງຫວ່າງ
                                 <span class="badge badge-light right">{{ $guest_room }}</span>
                             </a>
-                            <a href="{{ Route('manage_rooms', ['status' => '1']) }}" class="btn btn-warning ml-2">ລໍຖ້າ
+                            <a href="{{ Route('manage_rooms', ['status' => '1']) }}" class="btn btn-warning ">ລໍຖ້າ
                                 check In
                                 <span class="badge badge-light right">{{ $booking_room }}</span>
                             </a>
-                            <a href="{{ Route('manage_rooms', ['status' => '2']) }}" class="btn btn-info ml-2">ລໍຖ້າ
+                            <a href="{{ Route('manage_rooms', ['status' => '2']) }}" class="btn btn-info ">ລໍຖ້າ
                                 check out
                                 <span class="badge badge-light right">{{ $check_in_room }}</span>
                             </a>
@@ -134,11 +136,11 @@
         <div class="modal-dialog" role="document">
             <form autocomplete="off" wire:submit.prevent="{{ $showEditModal ? 'update' : 'createRoom' }}">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header bg-info ">
                         @if ($showEditModal)
-                            <h4>ແກ້ໄຂຫ້ອງ</h4>
+                            <h4 >ແກ້ໄຂຫ້ອງ</h4>
                         @else
-                            <h4>ເພີ່ມຫ້ອງໃໜ່</h4>
+                            <h4 >ເພີ່ມຫ້ອງໃໜ່</h4>
                         @endif
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -209,7 +211,7 @@
 
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-info">
 
                     <h4>ລາຍລະອຽດ</h4>
 
@@ -266,7 +268,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form autocomplete="off" wire:submit.prevent="Set_Check_in_data">
-                    <div class="modal-header">
+                    <div class="modal-header bg-info">
                         <h4>ການ Cheak In</h4>
 
 
@@ -342,7 +344,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <form autocomplete="off" wire:submit.prevent="Set_Check_out_data">
-                    <div class="modal-header">
+                    <div class="modal-header bg-info">
                         <h4>ການ Check Out</h4>
 
 
@@ -422,7 +424,7 @@
         aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-danger">
                     <h5 class="modal-title">
 
                         ລົບຫ້ອງ
