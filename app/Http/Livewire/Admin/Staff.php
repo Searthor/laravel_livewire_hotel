@@ -34,6 +34,12 @@ class Staff extends Component
             'address' => 'required',
             'contact_no' => ['required', 'min:8'],
             'salary' => 'required',
+        ],[
+            'emp_name.required'=>'ກະລຸນາປ້ອມຊື່ພະນັກງານ!!',
+            'staff_type_id.required'=>'ກະລຸນາເລືອກຕຳແໜ່ງ!!',
+            'address.required'=>'ກະລຸນາປ້ອມທີ່ຢູ່!!',
+            'contact_no.required'=>'ກະລຸນາປ້ອມເບີໂທ!!',
+            'salary.required'=>'ກະລຸນາປ້ອມເງິນເດືອນ!!',
         ])->validate();
 
         ModelsStaff::create($data);
@@ -86,9 +92,15 @@ class Staff extends Component
             'address' => 'required',
             'contact_no' => ['required', 'min:8'],
             'salary' => 'required',
+        ],[
+            'emp_name.required'=>'ກະລຸນາປ້ອມຊື່ພະນັກງານ!!',
+            'staff_type_id.required'=>'ກະລຸນາເລືອກຕຳແໜ່ງ!!',
+            'address.required'=>'ກະລຸນາປ້ອມທີ່ຢູ່!!',
+            'contact_no.required'=>'ກະລຸນາປ້ອມເບີໂທ!!',
+            'salary.required'=>'ກະລຸນາປ້ອມເງິນເດືອນ!!',
         ])->validate();
         $this->staff->update($data);
-        $this->dispatchBrowserEvent('hide-form', ['message' => 'Employyes Upadate successfully!']);
+        $this->dispatchBrowserEvent('hide-form', ['message' => 'ແກ້ໄຂສຳເລັດ']);
     }
 
 

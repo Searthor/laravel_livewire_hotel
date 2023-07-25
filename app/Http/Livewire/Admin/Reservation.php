@@ -84,6 +84,14 @@ class Reservation extends Component
             'room_type' => 'required',
             'check_in_date' => 'required',
             'check_out_date' => 'required',
+        ],[
+            'customer_name.required'=>'ກະລຸນາປ້ອມຊື່ລູກຄ້າ',
+            'customer_lastname.required'=>'ກະລຸນາປ້ອມຊື່ລູກຄ້າ',
+            'customer_phone.required'=>'ກະລຸນາປ້ອມເບີໂທ',
+            'room_no.required'=>'ກະລຸນາເລືອກເລກຫ້ອງ',
+            'room_type.required'=>'ກະລຸນາເລືອກປະເພດຫ້ອງ',
+            'check_in_date.required'=>'ກະລຸນາເລືອກວັນທີ່ເຂົ້າພັກ',
+            'check_out_date.required'=>'ກະລຸນາເລືອກວັນທີ່ອອກ',
         ])->validate();
 
         $Customerdata = [
@@ -112,7 +120,7 @@ class Reservation extends Component
             
             DB::commit();
 
-            $this->dispatchBrowserEvent('Booking_success', ['message' => 'Booking successful!']);
+            $this->dispatchBrowserEvent('Booking_success', ['message' => 'ຈອງສຳເລັດແລ້ວ']);
             $this->reset();
         } catch (\Exception $ex) {
             DB::rollBack();

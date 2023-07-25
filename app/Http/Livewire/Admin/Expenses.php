@@ -47,7 +47,6 @@ class Expenses extends Component
     public function save()
     {
         $this->validate();
-        
         $data = new expense();
         $data->amount = $this->amount;
         $data->des = $this->des;

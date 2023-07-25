@@ -26,7 +26,7 @@ class RoomTpye extends Component
         $this->dispatchBrowserEvent('show-form');
     }
     public function create()
-    {;
+    {
         $ValidateData = Validator::make($this->state,
             [
                 'room_types' => 'required|unique:room_types',
